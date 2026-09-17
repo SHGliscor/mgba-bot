@@ -1,0 +1,4 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF7 Encounter Result Fix
+Built from v0p23 HF6 Wild Intro A Fix.
+Wild-only Python/UI adapter hotfix; no CIA/3DSX or frozen starter files changed.
+Encounter-log Result is now a verified battle outcome: pending -> Ran Away, or Held — Shiny.

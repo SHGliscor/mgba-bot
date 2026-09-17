@@ -1,0 +1,9 @@
+Pokebot3DS-CFW mGBA v0p19 generation-aware RNG gate
+Repository: SHGliscor/Pokebot3DS-CFW
+Branch: mgba-probe1
+Successful GitHub Actions run: 34986564362
+Head commit: 3a6fbe8f9948349d95202d0ac4626200be32ddee
+Pinned upstream mGBA: a1020b0e72e90d56d4779efcdf776aa9c1450fe1
+
+The authoritative patch/workflow live on the branch above. The compiled CIA/3DSX
+in build/ were produced by that successful workflow run.

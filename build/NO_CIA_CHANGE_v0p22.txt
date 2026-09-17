@@ -1,0 +1,4 @@
+v0p22 changes are PC-side only.
+
+Use the included Pokebot3DS-CFW-mGBA-StarterRNGGate-v0p21.cia.
+That CIA is part of the frozen, hardware-passed starter baseline and already provides the READ/KEY1/FAST commands required by Wild Spin.

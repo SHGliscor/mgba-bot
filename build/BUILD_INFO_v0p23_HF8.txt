@@ -1,0 +1,4 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF8 Wild Text Controller Fix
+Built from v0p23 HF7 Encounter Result Fix.
+Wild-only Python hotfix; no CIA/3DSX or frozen starter files changed.
+Wild battle text now advances from live PRINTSTRING controller authority across all battlers before RUN-menu navigation.

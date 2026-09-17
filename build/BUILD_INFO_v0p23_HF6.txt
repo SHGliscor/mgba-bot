@@ -1,0 +1,3 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF6 Wild Intro A Fix
+Built from v0p23 HF5 Run Menu Probe Fix.
+Wild-only Python hotfix; no CIA/3DSX or frozen starter files changed.

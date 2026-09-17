@@ -1,0 +1,2 @@
+10c82b2cbfd539558510154488416d1eac0fa71f0c1628560ee8e255531ab488  Pokebot3DS-CFW-mGBA-StarterRNGGate-v0p21.3dsx
+c4becdddb8adcbd36da7b5570d1a19371374f1f90f06bd45df819ec19780df9d  Pokebot3DS-CFW-mGBA-StarterRNGGate-v0p21.cia

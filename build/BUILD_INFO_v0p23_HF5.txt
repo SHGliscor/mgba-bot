@@ -1,0 +1,11 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF5 Run Menu Probe Fix
+
+Base: v0p23 HF4 Safe Spin Direction Fix
+Starter layer: frozen v0p21 HF1, unchanged.
+Wild layer:
+- HF4 live-facing stationary-spin guard retained.
+- Strict CONTROLLER_CHOOSEACTION RUN detection retained.
+- Safe gActionSelectionCursor D-pad proof fallback added for retail/mGBA cases
+  where the visible action menu does not expose command 18 through the expected
+  gBattleBufferA byte.
+- A is never sent until the action menu is proven and RUN cursor=3 is re-read.

@@ -1,0 +1,9 @@
+Pokebot3DS-CFW mGBA Gen 3 v0p24 RS World/Hunt Complete
+Base: user-supplied v0p23 HF8 WildTextControllerFix
+Date: 2026-09-15
+
+PC UI/source changed only. The existing v0p21 bridge CIA/3DSX binaries are intentionally
+retained because this release does not require a firmware-side bridge change.
+
+Stable Wild method: Spin
+World support: Pokémon Ruby/Sapphire English US v1.0/v1.1 (AXVE/AXPE rev00/rev01)

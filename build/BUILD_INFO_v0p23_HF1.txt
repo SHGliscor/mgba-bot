@@ -1,0 +1,5 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF1 Wild Spin / RUN Fix
+No CIA change from v0p21.
+Starter layer: frozen v0p21 HF1; no starter source edits in this hotfix.
+Wild layer: FAST=0 stationary turns + live CONTROLLER_CHOOSEACTION RUN navigation.
+Hardware issue source: support bundle 20260915_201531.

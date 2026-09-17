@@ -1,0 +1,9 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF3 Spin Verify Poll Fix
+
+PC-side Wild Spin hotfix only. No CIA/3DSX change.
+
+Primary change:
+  gen3bot/modes/wild_engine.py stationary_turn() now uses a single KEY1 pulse followed by RAM polling instead of repeated direction pulses.
+
+Starter frozen layer:
+  unchanged; verify_frozen_starters.py must PASS.

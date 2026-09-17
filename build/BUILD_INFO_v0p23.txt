@@ -1,0 +1,6 @@
+Pokebot3DS-CFW Gen 3 v0p23 Main Dashboard Modes
+No CIA change from v0p21.
+Starter layer: frozen v0p21 HF1, SHA-256 verified.
+Dashboard modes: Starters / Wild Encounters.
+First implemented wild method: Spin.
+GitHub release-note commit: ea29602c449a367a0c92294afc2a6175d2bc9fc3

@@ -1,0 +1,9 @@
+The exact CIA source used for this package is committed to:
+  Repository: SHGliscor/Pokebot3DS-CFW
+  Branch: mgba-probe1
+  Build commit: 177b02e3cd029355f900936b24e940e58b98ff10
+  Patch: tools/mgba_starter_rnggate_patch.py
+  Workflow: .github/workflows/mgba_probe1.yml
+  Workflow run: 34998246747 (SUCCESS)
+
+The follow-up release-note commit is 3234d6aa0297c711ac87c6815a4e035300bec64c.

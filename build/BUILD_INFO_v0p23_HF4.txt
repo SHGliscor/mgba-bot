@@ -1,0 +1,11 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF4 Safe Spin Direction Fix
+
+PC-side Wild Spin hotfix only. No CIA/3DSX change.
+
+Primary changes:
+  - stationary_turn() never emits a same-facing direction pulse.
+  - confirmed turns get a short RAM-supervised settle window.
+  - ignored turn pulses retry through the next loop instead of false-stopping.
+
+Starter frozen layer:
+  unchanged; verify_frozen_starters.py must PASS.

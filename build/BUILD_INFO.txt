@@ -1,0 +1,10 @@
+Pokebot3DS-CFW Gen 3 v0p22 — Frozen Starters + Modular Wild Spin
+
+CIA/3DSX: unchanged v0p21 hardware-passed starter bridge
+CIA source build: GitHub Actions run 35004775997
+Frozen starter base: v0p21 HF1 using v0p19 generation-aware RNG core
+Wild changes: PC-side only
+Supported game profiles: Ruby/Sapphire English v1.0 and v1.1
+
+Starter freeze verification:
+  python verify_frozen_starters.py

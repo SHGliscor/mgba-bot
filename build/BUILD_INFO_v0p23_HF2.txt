@@ -1,0 +1,5 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF2 Battle-State Fix
+
+Wild battle lifetime authority: gMain.inBattle (gMain+0x43D, mask 0x02).
+gBattleTypeFlags remains metadata for an active battle, not proof that a battle is currently running.
+Starter layer: frozen v0p21 HF1; no starter source/CIA changes.
