@@ -1,0 +1,61 @@
+Pokebot3DS-CFW Gen 3 Starter Game Profiles — v0p21
+
+Supported English ROMs
+----------------------
+Ruby:
+  AXVE rev 00 = v1.0
+  AXVE rev 01 = v1.1
+
+Sapphire:
+  AXPE rev 00 = v1.0
+  AXPE rev 01 = v1.1
+
+Detection
+---------
+PB3 GAME selects Ruby vs Sapphire.
+ROM header byte 0x080000BC selects revision 00 vs 01.
+
+Shared RAM / RNG symbols across all four profiles
+-------------------------------------------------
+gBattleTypeFlags      0x020239F8
+gBattlersCount        0x02024A68
+gSaveBlock2           0x02024EA4
+gSaveBlock1           0x02025734
+gMapHeader            0x0202E828
+gPlayerAvatar         0x0202E858
+sPlayTimeCounterState 0x0300057C
+gMain                 0x03001770
+gBattleMainFunc       0x030042D4
+gPlayerPartyCount     0x03004350
+gPlayerParty          0x03004360
+gEnemyParty           0x030045C0
+gRngValue             0x03004818
+gObjectEvents         0x030048A0
+gTasks                0x03004B20
+sErrorStatus          0x03000458
+sRtc                  0x03000460
+sProbeResult          0x0300046C
+SeedRngWithRtc        0x080003E4
+RtcGetMinuteCount     0x0800968C
+BattleBeginFirstTurn  0x08011B00
+
+Revision-specific starter callbacks
+-----------------------------------
+rev 00 / v1.0:
+  Task_StarterChoose2  0x0810A178
+  CB2_ChooseStarter    0x08109E80
+
+rev 01 / v1.1:
+  Task_StarterChoose2  0x0810A198
+  CB2_ChooseStarter    0x08109EA0
+
+Other ROM-address differences exist between Ruby/Sapphire for some field-message
+functions, but those are not used by the starter loop.
+
+Source
+------
+pret/pokeruby symbols branch:
+  pokeruby.sym
+  pokeruby_rev1.sym
+  pokesapphire.sym
+  pokesapphire_rev1.sym

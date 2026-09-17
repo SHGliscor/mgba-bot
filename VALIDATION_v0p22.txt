@@ -1,0 +1,20 @@
+Pokebot3DS-CFW Gen 3 v0p22 validation
+
+PASS — frozen starter SHA-256 manifest
+PASS — Ruby AXVE rev00 profile detection
+PASS — Ruby AXVE rev01 profile detection
+PASS — Sapphire AXPE rev00 profile detection
+PASS — Sapphire AXPE rev01 profile detection
+PASS — Route 101 PK3 decode for Poochyena / Zigzagoon / Wurmple synthetic checksum-valid fixtures
+PASS — Wild engine stable enemy PK3 gate
+PASS — Exact species+PID+six-IV repeat classification
+PASS — RUN cursor state-machine simulation (Fight -> Bag -> Run -> A)
+PASS — Trainer battle safety-stop simulation
+PASS — Python syntax compile for package sources
+
+Not hardware-tested yet:
+- Wild Spin encounter -> RUN -> overworld -> resume loop
+- Stationary drift guard on hardware
+- Wild shiny hold on hardware
+
+The starter module remains hardware-passed and frozen; v0p22 introduces no CIA changes.

@@ -1,0 +1,10 @@
+Pokebot3DS-CFW Gen 3 Starter UI v0p13 — RNG Distance Guard
+
+- Treats v0p12 duplicate increase as an RNG-gate regression, not an RTC failure.
+- CIA rejects confirmation RNG states within ±64 LCG calls of any state already used this hunt, not only exact matches.
+- Guard width is adaptive and can widen up to ±512 calls after an exact PID+IV generation repeat.
+- Restores the proven v0p11 per-RTC-seed frame-delay sequence.
+- PC reconstructs the exact Ruby PID+IV generation point from the 16-bit RTC seed using the retail LCG and CreateBoxMon Random32()+IV sequence.
+- RNG/RTC tab adds guard width, near-state blocks, PID RNG call index, Confirm→PID call distance, and generation pre-RNG.
+- Existing live phase timer, sprite encounter log, full session encounter list, and Recent Shinies tab retained.
+- No RNG RAM writes and no artificial reseeding.

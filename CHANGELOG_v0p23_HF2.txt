@@ -1,0 +1,14 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF2 — Battle-state authority fix
+
+FIXED
+- Wild Spin no longer treats stale gBattleTypeFlags as proof that a battle is active.
+- Ruby/Sapphire gBattleTypeFlags can remain non-zero after returning to the overworld.
+- Battle lifetime is now read from the authoritative gMain.inBattle bit at gMain+0x43D bit 1.
+- Existing-battle safety guard now triggers only when gMain.inBattle is actually set.
+- Wild encounter detection, RUN completion, overworld recovery and stationary-turn checks use the same battle-active authority.
+- Support bundles now record battle_state.active, the raw gMain inBattle byte, type flags, battler count, controller exec flags and live choose-action state.
+
+UNCHANGED
+- v0p23 HF1 RAM-verified RUN cursor/navigation logic.
+- Stationary Spin FAST=0 input containment.
+- Frozen v0p21 HF1 starter backend/UI/CIA.

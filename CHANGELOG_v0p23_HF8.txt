@@ -1,0 +1,17 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF8 — Wild Text Controller Fix
+
+Built from v0p23 HF7 Encounter Result Fix.
+
+HF8 changes:
+- Fixes the remaining false stop where the bot could reach a real wild battle
+  but never press A on "Wild <Pokémon> appeared!".
+- Wild intro/text authority now scans all four live battle-controller slots,
+  not only player-side battlers 0/2.
+- Recognises Ruby/Sapphire CONTROLLER_PRINTSTRING (16) and
+  CONTROLLER_PRINTSTRINGPLAYERONLY (17) directly.
+- A is sent only while that exact text-controller command is still live after
+  FAST has been forced off and the state has been re-read.
+- If the Fight/Bag/Pokémon/Run menu appears during that hand-off, the intro A
+  is cancelled and the normal RAM-verified RUN path takes over.
+- Existing HF7 encounter Result reporting is retained.
+- Frozen v0p21 HF1 starter backend/UI/CIA/3DSX remain unchanged.

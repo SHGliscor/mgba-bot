@@ -1,0 +1,27 @@
+Pokebot3DS-CFW mGBA Ruby v0p19 generation-aware RNG gate
+========================================================
+
+PB3 STARTER_ARM <seed_hex> <delay_frames>
+  Arms a one-frame local A confirmation.
+  Rejects an exact confirmation gRngValue already used this hunt.
+  Also predicts future generation_pre_rng states for PID-call offsets in the
+  current guard window (default 48-72) and rejects only a candidate that would
+  reproduce an actual generation state recorded previously.
+
+PB3 STARTER_RECORD <generation_pre_rng_hex> <confirm_to_pid_calls>
+  Called by the PC after a checksum-valid PK3 is decoded and traced.
+  Adds the actual CreateBoxMon generation_pre_rng to the CIA session history.
+  Idempotent and safe to retry.
+
+PB3 STARTER_RESULT
+  Reports exact confirmation blocks, predicted-generation blocks, recorded
+  generation count, current PID-call window, seed/attempt counters, frame
+  count, and capacity.
+
+PB3 STARTER_CLEAR
+  Clears confirmation + actual-generation histories once at new-hunt start.
+
+PB3 STARTER_CANCEL
+  Cancels only the currently armed confirmation.
+
+No game RAM writes are performed.

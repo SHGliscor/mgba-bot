@@ -1,0 +1,27 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF4 validation
+
+PASS - Python compile:
+  gen3bot/modes/wild_engine.py
+  gen3bot/modes/wild_spin.py
+  gen3_app.py
+
+PASS - Same-facing guard simulation:
+  live facing UP + requested UP -> RIGHT substituted before KEY1.
+  result: no same-facing movement pulse can be emitted.
+
+PASS - Ignored turn simulation:
+  X/Y unchanged, facing remains old direction for 0.60 s.
+  result: SPIN_TURN_IGNORED / non-fatal retry path.
+
+PASS - Drift simulation:
+  X/Y changes after direction pulse.
+  result: immediate stationary-spin drift safety stop.
+
+PASS - Post-turn pacing:
+  confirmed turn is followed by 100 ms no-input settle under FAST=0.
+
+Hardware evidence addressed:
+  Pokebot3DS-CFW_support_20260915_204525.zip
+  - restart at facing UP sent UP and moved from y=13 -> 12
+  - subsequent restart repeated UP and moved y=12 -> 11
+  - second direction ~50 ms after a successful turn could be ignored.

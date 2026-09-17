@@ -1,0 +1,30 @@
+Pokebot3DS-CFW mGBA Gen 3 Starter UI v0p21 HF1
+=================================================
+
+UI REGRESSION FIX
+- Restored the complete v0p19 Current UI / Pokémon-themed interface.
+- Restored the v0p19 dashboard cards, header, tab styling, sprites,
+  Encounter Log, Recent Shinies, phase records, continuous phase timer,
+  RTC/RNG diagnostics, and generation-aware telemetry layout.
+- v0p21 no longer uses the older v0p13-era UI as its base.
+
+STARTER LOGIC
+- Restored v0p19 closed-loop starter cursor validation using
+  Task_StarterChoose2.tStarterSelection. This is especially important for
+  Random mode under fast-forward.
+- Retains the proven v0p19 generation-aware STARTER_RECORD RNG system.
+- STARTER_RECORD is sent once only to avoid replaying side effects after a
+  delayed UDP acknowledgement.
+
+GAME / REVISION SUPPORT
+- Pokémon Ruby AXVE rev 00 (v1.0)
+- Pokémon Ruby AXVE rev 01 (v1.1)
+- Pokémon Sapphire AXPE rev 00 (v1.0)
+- Pokémon Sapphire AXPE rev 01 (v1.1)
+- rev00 uses CB2_ChooseStarter 0x08109E80 / Task_StarterChoose2 0x0810A178.
+- rev01 uses CB2_ChooseStarter 0x08109EA0 / Task_StarterChoose2 0x0810A198.
+
+CIA
+- Uses the included v0p21 CIA built successfully by GitHub Actions run
+  35004775997.
+- No RNG RAM writes, RTC writes, or artificial reseeding.

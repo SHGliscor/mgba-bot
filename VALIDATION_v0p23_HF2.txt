@@ -1,0 +1,9 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF2 validation
+
+PASS — Python source compile
+PASS — Frozen starter backend/UI/CIA byte-for-byte check
+PASS — stale gBattleTypeFlags + gMain.inBattle=0 is treated as overworld
+PASS — gMain.inBattle bit 1 set is treated as battle even when type flags are zero
+PASS — unrelated packed gMain bit 0 does not trigger battle state
+
+Hardware confirmation still required for Wild Spin encounter -> RUN -> overworld loop.

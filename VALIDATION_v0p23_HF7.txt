@@ -1,0 +1,21 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF7 validation
+
+PASS - Python syntax compilation:
+  gen3_app.py
+  gen3bot/modes/wild_spin.py
+
+PASS - Result lifecycle inspection:
+  encounter emitted -> "Run pending…"
+  RUN succeeds + overworld RAM confirmation -> "Ran Away"
+  shiny hold -> "Held — Shiny"
+  Result is no longer populated with "Normal — RUN" / "ANTI-SHINY — RUN".
+
+PASS - UI layout rule:
+  Result column 12 is ResizeToContents in the modular Gen 3 window.
+
+PASS - Frozen starter verification:
+  v0p21 HF1 starter backend/UI/CIA byte-for-byte unchanged.
+
+NOTE - PySide6 is not installed in the packaging container, so full Qt rendering
+was not executed here. The edited Python modules compile successfully and the
+frozen starter verification passes.

@@ -1,0 +1,37 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF5 validation
+
+PASS - Python compile:
+  gen3_app.py
+  support_export.py
+  gen3bot/games/rs.py
+  gen3bot/modes/wild_engine.py
+  gen3bot/modes/wild_spin.py
+
+PASS - Frozen starter verification:
+  v0p21 HF1 starter backend/UI/CIA byte-for-byte unchanged.
+
+PASS - Strict menu simulation:
+  command=18, cursor=0
+  DOWN -> cursor 2
+  RIGHT -> cursor 3
+  A -> RUN accepted -> overworld
+
+PASS - Retail/mGBA fallback simulation:
+  player controller exec bit=1
+  command byte != 18
+  cursor 0
+  RIGHT probe -> predicted cursor 1
+  menu proven by RAM
+  DOWN -> cursor 3
+  A -> RUN accepted -> overworld
+
+PASS - Safety simulation:
+  player controller bit live but action menu not interactive
+  D-pad probe does not alter gActionSelectionCursor
+  menu is NOT proven
+  no A press is sent
+  timeout is raised safely.
+
+Hardware validation requested:
+  Spin -> wild encounter -> visible action menu -> cursor proof/strict proof
+  -> RUN cursor -> A -> overworld -> Spin resumes.

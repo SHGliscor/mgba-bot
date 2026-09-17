@@ -1,0 +1,29 @@
+Pokebot3DS-CFW Gen 3 Starter UI v0p12
+
+RNG / CIA
+- CIA gRngValue history now lasts for the entire hunt session.
+- RTC initial-seed changes no longer clear the CIA used-state history.
+- CIA history is cleared once when a new PC hunt starts.
+- 32,768-state hashed CIA history.
+- New RNG/RTC diagnostics: CIA session states, attempts on seed, seed changes,
+  blocked reused frames, capacity, exact generation repeats, recent RNG decisions.
+- Persistent PC rng_history.json remains a second independent check.
+- No game RNG writes, RTC writes, or artificial reseeding.
+
+Dashboard / logs
+- Phase Timer now updates continuously via a 250 ms Qt timer while hunting.
+- Encounter Log includes normal/shiny/anti-shiny starter sprites.
+- Encounter Log keeps every encounter seen in the current hunt session.
+- Anti-shiny results are labelled distinctly.
+- Current Encounter badge shows ANTI-SHINY for SV 65528-65535.
+
+Recent Shinies
+- New persistent Recent Shinies tab.
+- Stores up to 100 most recent shiny encounters in AppData stats.json.
+- Shows sprite, PID, IVs, IV sum, SV, nature, ability, Hidden Power, timestamp.
+- Clear Recent Shinies does not change lifetime shiny totals.
+
+Build
+- Install build/Pokebot3DS-CFW-mGBA-StarterRNGGate-v0p12.cia
+- GitHub Actions run: 34975902200
+- Commit: 6f8bb2dc1b9268bfec45db1aa8a4c00a7a369741

@@ -1,0 +1,21 @@
+Pokebot3DS-CFW Gen 3 Starter UI v0p15
+
+DASHBOARD LOG LAYOUT
+- Encounter Log is back on the main Dashboard.
+- Recent Shinies is also on the main Dashboard.
+- The old log area is now a selectable two-tab panel:
+    Encounter Log | Recent Shinies
+- Encounter Log and Recent Shinies are no longer separate main navigation tabs.
+
+CURRENT ENCOUNTER
+- Removed visible Pokémon name from the Current Encounter card.
+- Removed visible PID from the Current Encounter card.
+- Pokémon identity is now shown primarily by a larger sprite.
+- IVs, IV sum, Nature, SV, Gender, Ability, Hidden Power and shiny status remain.
+- PID/species remain internally available for logging/support data.
+
+UNCHANGED
+- Live phase timer remains continuous.
+- v0p12 session-wide CIA RNG gate remains included/compatible.
+- Encounter Log still shows normal/shiny/anti-shiny sprites.
+- Recent Shinies still persists in AppData.

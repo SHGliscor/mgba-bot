@@ -1,0 +1,40 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF1 validation
+
+PASS - Python syntax compilation:
+  gen3bot/games/rs.py
+  gen3bot/modes/wild_engine.py
+  gen3bot/modes/wild_spin.py
+  support_export.py
+  gen3_app.py
+
+PASS - Frozen starter verification:
+  python verify_frozen_starters.py
+  FROZEN STARTER CHECK: PASS
+  v0p21 HF1 starter backend/UI/CIA byte-for-byte unchanged.
+
+PASS - Simulated live Ruby RUN menu:
+  BATTLE_MENU_READY cursor=0
+  DOWN -> cursor=2 verified
+  RIGHT -> cursor=3 verified
+  A -> RUN accepted
+  battle -> overworld
+  All input occurred with FAST=0.
+
+PASS - Simulated failed escape:
+  first RUN accepted but battle remained active
+  command menu returned
+  second closed-loop RUN was submitted
+  overworld recovered
+
+PASS - Stationary Spin input gate simulation:
+  requested fast-forward state began true
+  direction KEY1 was issued with FAST=false
+  X/Y remained unchanged
+  requested facing was verified
+
+PASS - 2026-09-15 support snapshot decoder:
+  enemy internal species 288 -> Zigzagoon
+  ability -> Pickup
+  PID -> 3B070E0B
+
+Hardware validation still required on the user's Ruby/Sapphire + mGBA bridge.

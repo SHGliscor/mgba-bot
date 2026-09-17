@@ -1,0 +1,31 @@
+Pokebot3DS-CFW Gen 3 v0p22 — Frozen Starters + Modular Wild Spin
+
+STARTERS
+- Frozen at v0p21 HF1 after all four English Ruby/Sapphire revision profiles passed.
+- ruby_starter_hunter.py is byte-for-byte unchanged.
+- ruby_starter_ui.py is byte-for-byte unchanged.
+- v0p21 CIA/3DSX are byte-for-byte unchanged.
+- Added STARTERS_FROZEN_v0p21_HF1.sha256 and verify_frozen_starters.py.
+
+WILD ENCOUNTERS
+- Added a modular Wild Encounters tab without rewriting the current UI.
+- First method: Spin (Up -> Right -> Down -> Left one-frame inputs).
+- Supports Ruby/Sapphire v1.0 and v1.1 from the same shared RAM profile.
+- Reads gEnemyParty directly and validates the Gen 3 checksum.
+- Logs species, level, PID, IVs, SV, nature, ability and Hidden Power.
+- Uses normal/shiny/anti-shiny sprites for Route 101 Poochyena, Zigzagoon and Wurmple.
+- Non-shinies: state-driven RUN navigation from the live action cursor.
+- Shinies: fast-forward off, alert, battle held.
+- Exact species+PID+six-IV repeats are excluded from Effective Rolls.
+- Stationary drift safety: Spin stops if the player moves off the starting tile.
+- Trainer battle safety: never automated; immediate safety stop.
+- Phase timer updates every 250 ms independently of encounters.
+
+ARCHITECTURE
+- New modes live under gen3bot/.
+- Shared bridge reuses the frozen reply-correlated Bridge rather than forking it.
+- run_UI.bat launches gen3_app.py.
+- run_Starter_UI_Frozen.bat remains available for the exact frozen starter-only UI.
+
+CIA
+- No CIA changes in v0p22. Install/use the included v0p21 CIA.

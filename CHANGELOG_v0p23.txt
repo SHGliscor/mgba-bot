@@ -1,0 +1,11 @@
+Pokebot3DS-CFW Gen 3 v0p23 — Main Dashboard Modes
+
+- Removed the separate Wild Encounters top-level tab.
+- The existing Pokémon-themed Dashboard is now the single hunt dashboard.
+- Replaced the old Starter field with Mode: Starters / Wild Encounters.
+- Dynamic second selector:
+  - Starters -> Torchic / Treecko / Mudkip / Random
+  - Wild Encounters -> Spin / Run / Walk / Acro Bike Bunny Hop / Sweet Scent / Fishing / Rock Smash / Safari / Feebas
+- Spin remains the only enabled wild worker in this hardware-test build. Other methods are visible in the modular registry and will be implemented one at a time.
+- Wild encounters now update the same Current Encounter card, Shiny Phase stats, Encounter Log, Phase Records, Lifetime stats and Recent Shinies used by starters.
+- Starter files and v0p21 CIA remain frozen and unchanged.

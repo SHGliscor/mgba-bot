@@ -1,0 +1,27 @@
+Pokebot3DS-CFW Gen 3 Starter UI v0p17
+
+RANDOM STARTER FIX
+- Fixed Random mode repeatedly producing Torchic at mGBA fast-forward.
+- Root cause: Torchic is Ruby's default centre starter (selection index 1).
+  The bot previously sent a LEFT/RIGHT input and assumed it registered.
+  A missed one-frame direction input left the cursor on Torchic.
+- The bot now reads Ruby's authoritative Task_StarterChoose2.tStarterSelection:
+    0 = Treecko
+    1 = Torchic
+    2 = Mudkip
+- LEFT/RIGHT is retried until Ruby itself reports the requested starter.
+- The RNG confirmation gate is not armed until the requested cursor position
+  has been verified.
+- Species validation remains enabled after generation as a second safeguard.
+
+RANDOM DISTRIBUTION
+- Random mode now uses a shuffled bag containing Treecko, Torchic and Mudkip.
+- Every group of three attempts contains all three starters in random order.
+- The selected target is written to the live log each attempt.
+
+UNCHANGED
+- v0p16 clean Phase Records.
+- Encounter Log / Recent Shinies selectable on the Dashboard.
+- Sprite-first Current Encounter.
+- Continuous Phase Timer.
+- v0p12 session-wide CIA RNG gate; no CIA reinstall is required.

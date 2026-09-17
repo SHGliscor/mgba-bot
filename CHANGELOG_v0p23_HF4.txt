@@ -1,0 +1,10 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF4 — Safe Spin direction guard
+
+- Fixed real tile drift when Spin starts while the player is already facing the first requested direction.
+- Every stationary turn is now derived from the live ObjectEvent facing; the bot never sends the direction the player is already facing.
+- Added a 100 ms RAM-supervised no-input settle window after a confirmed turn so back-to-back KEY1 pulses are not ignored by the field engine.
+- An ignored turn is no longer a fatal safety stop if X/Y remains unchanged; it logs SPIN_TURN_IGNORED and recomputes safely on the next loop.
+- X/Y remains the hard safety invariant. Any actual tile movement still stops immediately.
+- Added SPIN_DIRECTION_GUARD telemetry showing requested, live-facing, and substituted safe direction.
+- HF2 gMain.inBattle authority, HF3 facing polling, and RAM-verified Run Away logic are retained.
+- Frozen v0p21 HF1 starter backend/UI/CIA remain unchanged.

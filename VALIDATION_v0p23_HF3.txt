@@ -1,0 +1,25 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF3 validation
+
+PASS - Python compile:
+  gen3bot/modes/wild_engine.py
+  gen3_app.py
+
+PASS - Frozen starter verification:
+  verify_frozen_starters.py
+  v0p21 HF1 starter backend/UI/CIA byte-for-byte unchanged.
+
+PASS - Stationary turn lag simulation:
+  facing sequence UP -> UP -> RIGHT after one RIGHT KEY1
+  result: confirmed with exactly one direction pulse.
+
+PASS - Battle transition simulation:
+  gMain.inBattle becomes true while facing is stale
+  result: returns control to encounter engine with exactly one direction pulse.
+
+PASS - Drift simulation:
+  X/Y changes after direction pulse
+  result: immediate stationary-spin drift safety stop.
+
+Hardware evidence addressed:
+  Pokebot3DS-CFW_support_20260915_203902.zip
+  Repeated first-read facing lag and occasional false second-read safety stop.

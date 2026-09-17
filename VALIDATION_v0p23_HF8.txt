@@ -1,0 +1,23 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF8 validation
+
+PASS - Python syntax compilation:
+  gen3_app.py
+  gen3bot/games/rs.py
+  gen3bot/modes/wild_engine.py
+  gen3bot/modes/wild_spin.py
+
+PASS - Opponent-side wild-text simulation:
+  gMain.inBattle = 1
+  battler 1 controller exec bit live
+  gBattleBufferA[battler 1][0] = CONTROLLER_PRINTSTRING (16)
+  -> exactly one A is sent
+  -> controller transitions to battler 0 CONTROLLER_CHOOSEACTION (18)
+  -> action menu is returned as strict RAM authority.
+
+PASS - Already-live action menu simulation:
+  battler 0 CONTROLLER_CHOOSEACTION (18) live
+  -> no intro A is sent
+  -> menu returns directly.
+
+PASS - Frozen starter verification:
+  v0p21 HF1 starter backend/UI/CIA/3DSX byte-for-byte unchanged.

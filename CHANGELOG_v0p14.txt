@@ -1,0 +1,18 @@
+Pokebot3DS-CFW Gen 3 Starter UI v0p14 — Pokémon Theme
+
+VISUAL REDESIGN
+- Full application now uses one coherent dark Pokédex-inspired theme instead of mixing Windows-default widgets with the old overlay.
+- Deep navy/slate background reduces glare during long shiny-hunting sessions.
+- Pokémon-red selected tabs with a warm gold accent.
+- Rounded cards, softer borders and clearer information hierarchy.
+- Colour-coded panel headers: Hunt Control, Current Encounter, Shiny Phase, Phase Records and Encounter Log.
+- New compact Poké Ball mark in the app header.
+- Treecko, Torchic and Mudkip sprites appear in the header as a subtle starter trio.
+- Connection status is now a themed pill with connected / connecting / stopped / error states.
+- Start, Stop, Export Support and destructive reset buttons are visually distinct.
+- Tables, headers, scrollbars, group boxes, fields and combo boxes all match the same theme.
+- IV / shiny / anti-shiny highlight colours are softer and easier on the eye while staying distinct.
+- Encounter Log and Recent Shinies remain separate adjacent tabs.
+- Live phase timer, session-wide CIA RNG gate and all v0p13/v0p12 logic are unchanged.
+
+No CIA reinstall is required if Pokebot3DS-CFW-mGBA-StarterRNGGate-v0p12.cia is already installed.

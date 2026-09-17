@@ -1,0 +1,55 @@
+Pokebot3DS-CFW — mGBA Gen 3 v0p24 RS World/Hunt Complete
+2026-09-15
+
+BASE
+- Built from the supplied v0p23 HF8 WildTextControllerFix package.
+- HF8 Wild Spin battle engine retained unchanged.
+- v0p21 HF1 starter backend/UI/CIA/3DSX remain frozen and verify byte-for-byte.
+
+RUBY / SAPPHIRE WORLD DATABASE
+- Added live, version-correct R/S gWildMonHeaders reader for AXVE/AXPE v1.0 and v1.1.
+- Scans every wild-map header and writes a complete version-specific world cache to AppData.
+- Added map names for R/S routes, dungeons, Safari Zone and underwater maps.
+- Added land, Surf, Rock Smash, Old Rod, Good Rod and Super Rod slot tables.
+- Species are decoded from the running ROM, including names, abilities and gender thresholds.
+- Route 103 land data resolves Zigzagoon 60%, Poochyena 30%, Wingull 10%.
+
+HUNT TAB
+- Added current-route world summary plus all-map browser.
+- Added per-species Encounter %, level range and session Seen count.
+- Added independent per-species Target / Allowed / Blocked state.
+- Multiple species can be Target simultaneously.
+- Rules persist per game/version map + encounter method.
+- Blocked status never overrides shiny safety: every real shiny still HOLDs.
+
+ENCOUNTER RATE / BOOSTS
+- Added base and effective live encounter percentages.
+- Effective R/S calculation mirrors DoWildEncounterTest: bike, White/Black Flute,
+  Cleanse Tag, Stench and Illuminate with the retail 2880 cap.
+- Added visible Illuminate, White Flute and Bike state.
+- Encounter Log and Recent Shinies show the encountered species' route-slot percentage.
+
+PARTY VIEWER
+- Added continuously refreshed 6-slot RAM Party tab, including species sprite, shiny state,
+  level, HP/status, gender, nature, ability, held item, IVs, battle stats, Pokérus and SV.
+
+WURMPLE
+- Added PID-derived evolution branch: Silcoon → Beautifly or Cascoon → Dustox.
+- Shown on current encounter, Encounter Log, Recent Shinies and Party Viewer.
+
+SPRITES / SHINY ALERT
+- Added normal / shiny / anti-shiny sprite resolver using the pinned
+  40Cakes/pokebot-gen3 sprite tree.
+- App and included sync utility can populate the complete 413-file set for each variant
+  into assets/pokemon without making hunting logic network-dependent.
+- Added original shiny-found WAV alert, on/off control and Test sound button.
+
+MOVEMENT CONTAINMENT FOUNDATION
+- Added RAM/ROM TerrainReader using the retail R/S sTileBitAttributes table.
+- Reads the loaded map metatile grid and identifies encounter land/water plus safe adjacent
+  edges. This is the boundary authority for future Walk/Run/Bike movement modes.
+
+SUPPORT / PERSISTENCE
+- Recent shiny snapshots now retain species id, route, encounter %, Wurmple branch,
+  Hunt state/method and held item metadata.
+- Support ZIP now includes R/S world cache and Hunt policy when present.

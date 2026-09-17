@@ -1,0 +1,36 @@
+Pokebot3DS-CFW mGBA Ruby Starter UI v0p19
+==================================================
+
+Support-bundle diagnosis from 2026-09-15 16:02:
+- RTC itself was healthy and LIVE.
+- 19 valid encounters had 0 exact generation duplicates.
+- The v0p18 ±64 LCG-distance guard became over-broad:
+  4,660 frames blocked, 4,600 of them by the neighbourhood rule.
+- Attempts 16, 17, 25 and 26 timed out waiting for a frame outside the guard.
+- Attempt 24 had one STARTER_OPEN acknowledgement timeout.
+- The hunt safety-stopped after attempts 24-26.
+- Throughput fell to ~358.5 effective rolls/hour.
+- STARTER_RESULT's 192-byte response buffer also truncated CAPACITY=32768
+  to values such as 3/3276 in some telemetry replies.
+
+v0p19 changes:
+- Removed the ±64 confirmation-state distance guard.
+- Kept exact confirmation-state uniqueness.
+- After every validated PK3, the PC reconstructs the actual Ruby
+  generation_pre_rng and records it to the CIA with STARTER_RECORD.
+- Before confirming the next starter, the CIA predicts generation_pre_rng
+  across PID-call offsets 48-72 and blocks only a predicted repeat.
+- The generation window auto-expands if hardware tracing reports an offset
+  outside the current range.
+- STARTER_RESULT buffer increased to 512 bytes.
+- RTC/RNG tab now exposes confirm states, recorded generation states,
+  exact-confirm blocks, predicted-generation blocks, guard window,
+  trace coverage, PID call index, Confirm->PID calls, and generation pre-RNG.
+- Existing current UI, sprites, encounter history, Recent Shinies, Random
+  starter fix, and continuous phase timer are retained.
+
+Policy:
+- No RNG RAM writes.
+- No RTC writes.
+- No artificial reseeding.
+- Live retail-style RTC remains authoritative.

@@ -1,0 +1,26 @@
+Pokebot3DS-CFW — v0p24 validation
+
+PASS — all Python sources compile with Python 3.13.
+PASS — verify_frozen_starters.py: v0p21 HF1 starter backend/UI/CIA/3DSX unchanged.
+PASS — HF8 gen3bot/modes/wild_engine.py SHA256 remains:
+       306d69318b0c1396e198e82fff900afe57de5ceceec29e1845b989c33e9ef5ea
+PASS — offline Route 103 world-table test: Zigzagoon 60 / Poochyena 30 / Wingull 10.
+PASS — R/S encounter-rate modifier calculations.
+PASS — multi-target Hunt policy + independent Blocked state.
+PASS — Wurmple PID branch split at upperPersonality % 10 <=4 / >4.
+PASS — terrain reader land/water classification using sTileBitAttributes.
+PASS — shiny persistence retains Encounter %, route and Wurmple evolution.
+PASS — shiny_found.wav is valid PCM WAV and present in package.
+PASS — package ZIP integrity checked with unzip -t.
+
+Hardware status inherited from HF8:
+- Spin: user-confirmed working.
+- stationary containment: user-confirmed working.
+- real wild battle detection: user-confirmed working.
+- Wild Pokémon appeared! A handoff: HF8 controller-authoritative implementation retained.
+- RAM-verified RUN / overworld recovery: retained unchanged in wild_engine.py.
+
+Not promoted to hardware-stable in this package:
+- Walk, Run, Acro Bike Bunny Hop, Sweet Scent, Fishing, Rock Smash, Safari, Feebas workers.
+  The world/terrain layer required for these modes is now in place; the registry keeps them
+  disabled until each movement/action path is tested on hardware.

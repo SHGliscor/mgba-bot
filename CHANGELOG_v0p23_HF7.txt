@@ -1,0 +1,15 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF7 — Encounter Result Fix
+
+Wild Encounter Log
+- Result now represents the completed battle outcome rather than encounter classification + planned action.
+- Non-shiny rows start as "Run pending…" while the battle is still active.
+- The row changes to "Ran Away" only after RUN succeeds and RAM confirms the overworld return.
+- Shiny rows show "Held — Shiny".
+- Result classification remains available by tooltip and in the existing shiny/SV/repeat indicators.
+- Result column uses content sizing so the outcome is not displayed as "Normal — …".
+
+No changes to:
+- v0p21 HF1 frozen starter backend/UI/CIA
+- HF6 wild-intro A gating
+- HF5 RUN-menu proof
+- HF4 stationary Spin containment

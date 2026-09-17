@@ -1,0 +1,41 @@
+Ruby/Sapphire world database — v0p24
+
+Source of truth
+---------------
+The PC app reads gWildMonHeaders from the running English US Ruby/Sapphire ROM over the
+mGBA bridge. This means Ruby/Sapphire encounter-table differences come from the game that
+is actually running, rather than a manually duplicated route list.
+
+Supported game profiles
+-----------------------
+AXVE rev00  Ruby v1.0
+AXVE rev01  Ruby v1.1
+AXPE rev00  Sapphire v1.0
+AXPE rev01  Sapphire v1.1
+
+Decoded methods
+---------------
+Land / grass: 12 slots
+Surf: 5 slots
+Rock Smash: 5 slots
+Old Rod: slots 0-1 of fishing table
+Good Rod: slots 2-4
+Super Rod: slots 5-9
+
+The database aggregates duplicate slots for the same species, so Encounter % is the total
+chance that an encounter of that method is that species. Example: Route 103 land resolves
+Zigzagoon 60%, Poochyena 30%, Wingull 10%.
+
+Cache
+-----
+After connection, all wild map headers are scanned and written to:
+%APPDATA%\Pokebot3DS-CFW\Gen3\rs_world_<game>_revXX.json
+
+Hunt rules are stored separately in:
+%APPDATA%\Pokebot3DS-CFW\Gen3\rs_hunt_policy.json
+
+Movement boundary
+-----------------
+TerrainReader reads the loaded MapLayout and the retail sTileBitAttributes ROM table.
+Bit 0 marks wild-encounter terrain and bit 1 marks surfable terrain. Future Walk/Run/Bike
+workers can therefore reject a destination tile before movement would leave encounter terrain.

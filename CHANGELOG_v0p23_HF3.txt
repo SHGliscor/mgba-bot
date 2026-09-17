@@ -1,0 +1,10 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF3 — Spin facing verification poll fix
+
+- Fixed false Stationary Spin safety stops caused by ObjectEvent facing RAM lagging KEY1 acknowledgement.
+- Each spin turn now sends exactly one direction pulse at FAST=0.
+- After the pulse the bot polls RAM for up to 0.60 s; it never resends the direction just because facing is still stale.
+- Player X/Y is checked on every available poll and remains the hard no-drift safety invariant.
+- If gMain.inBattle becomes true during the poll, control immediately passes to the encounter engine even if facing has not yet updated.
+- Added SPIN_TURN_SENT, SPIN_TURN_CONFIRMED and SPIN_BATTLE_STARTED telemetry.
+- HF2 gMain.inBattle authority and RAM-verified Run Away logic are retained.
+- Frozen v0p21 HF1 starter backend/UI/CIA remain unchanged.

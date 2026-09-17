@@ -1,0 +1,23 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF6 validation
+
+PASS - Python compile:
+  gen3bot/modes/wild_engine.py
+  gen3_app.py
+  gen3bot/games/rs.py
+
+PASS - Wild intro/menu simulation:
+  intro candidate + non-reactive D-pad -> exactly one intro A
+  subsequent non-strict menu -> D-pad cursor proof
+  cursor -> RUN (3) -> A
+  battle exit detected
+
+PASS - Existing strict action menu simulation:
+  no WILD_INTRO_A_SENT
+  cursor navigated to RUN -> A only on cursor 3
+
+PASS - Frozen starter verification:
+  v0p21 HF1 starter backend/UI/CIA byte-for-byte unchanged
+
+Hardware target sequence:
+  Spin -> wild encounter -> decode PK3 -> A at "Wild <name> appeared!" ->
+  Fight/Bag/Pokémon/Run -> RUN -> A -> overworld -> resume Spin.

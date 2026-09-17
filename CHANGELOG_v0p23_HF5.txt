@@ -1,0 +1,26 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF5 — Run Menu Probe Fix
+
+Support bundle 20260915_205204 confirmed:
+- Wild Spin reached a real Zigzagoon encounter.
+- gMain.inBattle was active.
+- gBattleControllerExecFlags was 0x00000001 (player controller live).
+- The Fight/Bag/Pokémon/Run menu was visible to the user.
+- No BATTLE_MENU_READY / RUN_* telemetry occurred.
+- The engine timed out because the strict gBattleBufferA command-byte gate did not validate.
+
+HF5 changes:
+1. Keep CONTROLLER_CHOOSEACTION (18) as the preferred strict menu authority.
+2. Add a safe fallback when the player controller bit is live but command 18 is not readable:
+   - force FAST=0,
+   - send one harmless horizontal D-pad pulse,
+   - require gActionSelectionCursor to change to the exact predicted 2x2-menu value,
+   - only then mark the action menu as proven.
+3. Never send A from an unproven candidate state.
+4. Continue RUN navigation using the same proven authority path.
+5. Revalidate RUN cursor=3 immediately before A.
+6. Harden A submission confirmation against stale gBattleBufferB RUN replies.
+7. Failed escape/retry returns to the same proof process.
+8. Support snapshots now include action_menu_candidate with raw command/cursor/exec data.
+9. Fixed the application title so support bundles identify HF5 correctly.
+10. All HF4 stationary-spin safety changes are retained.
+11. Frozen v0p21 HF1 starter backend/UI/CIA remain byte-for-byte unchanged.

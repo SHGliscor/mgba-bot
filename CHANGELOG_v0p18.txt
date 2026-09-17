@@ -1,0 +1,22 @@
+Pokebot3DS-CFW Gen 3 Starter UI v0p18 — Current UI + RNG Distance Guard
+
+PACKAGING/UI FIX
+- Fixes the accidental rollback to the older pre-Pokemon-theme UI in the previous RNG Distance Guard package.
+- Restores the current v0p17 UI as the base: dark Pokemon/Pokedex theme, dashboard Encounter Log / Recent Shinies tabs, sprite-first Current Encounter, clean Phase Records, continuous Phase Timer, and Random starter cursor verification.
+
+RNG / RTC
+- Keeps the v0p13 adaptive CIA RNG Distance Guard.
+- STARTER_ARM accepts an adaptive LCG guard width; default +/-64 Random() calls, maximum +/-512.
+- Session-wide confirmation-state history remains active across RTC seed changes.
+- PC reconstructs the actual PID/IV generation point from the retail Ruby LCG for diagnostics.
+- RNG / RTC tab shows guard width, near states blocked, PID RNG call index, Confirm -> PID calls and generation pre-RNG.
+- Exact PID+IV repeats remain excluded from Effective Rolls and widen the guard automatically.
+
+RANDOM STARTER
+- Retains the v0p17 authoritative Task_StarterChoose2 cursor verification.
+- Random mode keeps the shuffled Treecko/Torchic/Mudkip bag and does not arm RNG confirmation until the requested cursor position is verified.
+
+BUILD
+- Install build/Pokebot3DS-CFW-mGBA-StarterRNGGate-v0p13.cia
+- GitHub Actions run: 34982836550
+- Commit: 9f44dcead5e0b93c8b8cdebac166a0e9d9f64567

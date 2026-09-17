@@ -1,0 +1,14 @@
+Third-party sprite attribution
+
+Project: 40Cakes/pokebot-gen3
+Pinned commit: 5dd898f830775d448b06db6f5cd65b930540f146
+Source tree: modules/web/static/sprites/pokemon/{normal,shiny,anti-shiny}
+Repository: https://github.com/40Cakes/pokebot-gen3
+Repository license: GNU General Public License v3.0
+
+Pokebot3DS-CFW uses the upstream sprite naming/layout for its UI. The included
+sync_40cakes_sprites.py and SYNC_40CAKES_SPRITES.bat are pinned to the commit above.
+A copy of GPL-3.0 is included under THIRD_PARTY_LICENSES/GPL-3.0.txt.
+
+Pokémon names/characters and related game assets are trademarks/copyrights of their
+respective owners. This project is an unofficial fan/development tool.

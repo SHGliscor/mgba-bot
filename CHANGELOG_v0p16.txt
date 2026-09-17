@@ -1,0 +1,15 @@
+Pokebot3DS-CFW Gen 3 Starter UI v0p16
+
+PHASE RECORDS
+- Best SV now displays only the SV value.
+- Worst SV now displays only the SV value.
+- Best IV Sum now displays only the IV sum.
+- Worst IV Sum now displays only the IV sum.
+- Pokémon name removed from Phase Records.
+- PID removed from Phase Records.
+
+UNCHANGED
+- Encounter Log / Recent Shinies selectable on the Dashboard.
+- Current Encounter remains sprite-first with no visible PID/species duplication.
+- Live phase timer remains continuous.
+- v0p12 session-wide RNG-gate CIA remains unchanged.

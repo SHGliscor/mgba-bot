@@ -1,0 +1,19 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF6 — Wild Intro A Fix
+
+Hardware issue fixed:
+- Wild Spin entered and decoded the encounter but stopped on
+  "Wild <Pokémon> appeared!" because no A was sent before waiting for the
+  Fight/Bag/Pokémon/Run menu.
+
+HF6 changes:
+1. A failed D-pad action-menu proof now establishes that the 2x2 menu is not
+   interactive at that instant.
+2. Only after that proof, FAST is forced to 0 and A may be sent to advance the
+   wild-intro text.
+3. The worker probes again before every additional intro A, so a newly-opened
+   Fight menu cannot accidentally receive A.
+4. Intro A is bounded to three presses and separately logged as
+   WILD_INTRO_A_SENT.
+5. Shiny encounters still hold before run-away logic, so no intro A is sent on
+   a shiny hold.
+6. Starter backend/UI/CIA remain frozen and byte-for-byte unchanged.

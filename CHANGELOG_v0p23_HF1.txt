@@ -1,0 +1,28 @@
+Pokebot3DS-CFW Gen 3 v0p23 HF1 — Wild Spin / RUN closed-loop fix
+
+Hardware-support bundle addressed: Pokebot3DS-CFW_support_20260915_201531.zip
+
+- Fixed Stationary Spin movement under mGBA fast-forward.
+  - Overworld direction input is now always issued at FAST=0.
+  - Each turn is checked against the original ObjectEvent X/Y tile.
+  - Facing is RAM-verified; a missed one-frame turn gets one bounded retry.
+  - Fast-forward is now used only during passive, input-free battle transitions.
+- Replaced stale-cursor RUN logic with Ruby/Sapphire controller-state authority.
+  - gBattleTypeFlags is read as its real u16 width.
+  - Added gBattleBufferA/B and gBattleControllerExecFlags symbols.
+  - The bot waits for live CONTROLLER_CHOOSEACTION (18) on the player battler.
+  - RUN cursor navigation is closed-loop and RAM-verified at FAST=0.
+  - A is sent only after cursor 3 is re-confirmed immediately beforehand.
+  - RUN submission is verified from controller completion / gBattleBufferB.
+  - Failed escape attempts return to the live menu and retry safely.
+  - Removed unconditional B-spam from the run-away path.
+- Added stale-battle startup protection.
+  - Starting Spin while already in a battle now safety-stops without counting
+    that opponent as a new encounter or automatically running from it.
+- Added support telemetry:
+  BATTLE_MENU_READY, RUN_CURSOR_BEFORE, RUN_DOWN_RESULT, RUN_RIGHT_RESULT,
+  RUN_CONFIRMED, RUN_A_SENT, RUN_SUBMISSION, RUN_RETRY_MENU_READY,
+  OVERWORLD_RECOVERED, and SPIN_TURN_RETRY.
+- Support snapshot now uses the modular PK3 decoder, so Route 101 species such
+  as Zigzagoon no longer appear as "Species 288 / Unknown".
+- Starter hunter and v0p21 CIA/3DSX remain unchanged.
