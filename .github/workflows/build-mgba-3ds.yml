@@ -1,0 +1,93 @@
+name: Build Pokebot mGBA 3DS CIA
+
+on:
+  push:
+    branches:
+      - feature/mgba-3ds-rs-ci
+  pull_request:
+    paths:
+      - 'mgba-3ds/**'
+      - '.github/workflows/build-mgba-3ds.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-cia:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    container:
+      image: devkitpro/devkitarm:20260610
+    defaults:
+      run:
+        shell: bash
+    env:
+      DEVKITPRO: /opt/devkitpro
+      DEVKITARM: /opt/devkitpro/devkitARM
+    steps:
+      - name: Checkout bot repository
+        uses: actions/checkout@v4
+
+      - name: Install host build dependencies
+        run: |
+          set -euxo pipefail
+          apt-get update
+          apt-get install -y --no-install-recommends git ca-certificates python3 cmake make gcc g++ pkg-config libpng-dev zlib1g-dev libogg-dev libvorbis-dev
+
+      - name: Install makerom and bannertool when unavailable
+        run: |
+          set -euxo pipefail
+          mkdir -p /tmp/buildtools /usr/local/bin
+          if ! command -v makerom >/dev/null 2>&1; then
+            git clone --depth 1 https://github.com/3DSGuy/Project_CTR.git /tmp/buildtools/Project_CTR
+            make -C /tmp/buildtools/Project_CTR/makerom deps
+            make -C /tmp/buildtools/Project_CTR/makerom -j2
+            install -m755 /tmp/buildtools/Project_CTR/makerom/bin/makerom /usr/local/bin/makerom
+          fi
+          if ! command -v bannertool >/dev/null 2>&1; then
+            git clone --depth 1 https://github.com/carstene1ns/3ds-bannertool.git /tmp/buildtools/bannertool
+            cmake -S /tmp/buildtools/bannertool -B /tmp/buildtools/bannertool-build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local
+            cmake --build /tmp/buildtools/bannertool-build --parallel 2
+            cmake --install /tmp/buildtools/bannertool-build
+          fi
+          for tool in arm-none-eabi-gcc 3dsxtool picasso raw2c makerom bannertool; do
+            command -v "$tool" || exit 1
+          done
+
+      - name: Verify and unpack bridge source
+        run: |
+          set -euxo pipefail
+          base64 --decode mgba-3ds/bridge-src.tar.gz.b64 > /tmp/bridge-src.tar.gz
+          echo "36efde069610da6b223668274fecadbba29e7e1ef580ff5a7f8c9e689377358c  /tmp/bridge-src.tar.gz" | sha256sum --check
+          mkdir -p /tmp/bridge
+          tar -xzf /tmp/bridge-src.tar.gz -C /tmp/bridge
+          python3 -m py_compile /tmp/bridge/apply_to_mgba.py
+
+      - name: Download upstream mGBA and apply separate-identity bridge
+        run: |
+          set -euxo pipefail
+          git clone --depth 1 https://github.com/mgba-emu/mgba.git /tmp/mgba-original
+          python3 /tmp/bridge/apply_to_mgba.py /tmp/mgba-original --out /tmp/mgba-pokebot
+          grep -q 'CTR-P-PMGB' /tmp/mgba-pokebot/src/platform/3ds/cia.rsf.in
+          grep -q 'UniqueId                : 0xD722' /tmp/mgba-pokebot/src/platform/3ds/cia.rsf.in
+
+      - name: Configure and compile 3DS CIA
+        run: |
+          set -euxo pipefail
+          cmake -S /tmp/mgba-pokebot -B /tmp/mgba-pokebot/build \
+            -DCMAKE_TOOLCHAIN_FILE=/tmp/mgba-pokebot/src/platform/3ds/CMakeToolchain.txt \
+            -DCMAKE_BUILD_TYPE=Release -DBUILD_QT=OFF -DBUILD_SDL=OFF
+          cmake --build /tmp/mgba-pokebot/build --parallel 2 --target mgba.cia
+          test -s /tmp/mgba-pokebot/build/3ds/mgba.cia
+          mkdir -p out
+          cp /tmp/mgba-pokebot/build/3ds/mgba.cia out/Pokebot-mGBA-RubySapphire-3DS.cia
+          sha256sum out/*.cia | tee out/SHA256SUMS.txt
+
+      - name: Publish CIA as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pokebot-mGBA-RubySapphire-3DS-CIA
+          path: out/
+          if-no-files-found: error
+          retention-days: 14
