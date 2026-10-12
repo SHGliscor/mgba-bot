@@ -85,7 +85,7 @@ jobs:
           test -s /tmp/mgba-pokebot/build/3ds/mgba.cia
           mkdir -p out
           cp /tmp/mgba-pokebot/build/3ds/mgba.cia out/Pokebot-mGBA-RubySapphire-3DS.cia
-          sha256sum out/*.cia | tee out/SHA256SUMS.txt
+          (cd out && sha256sum Pokebot-mGBA-RubySapphire-3DS.cia > SHA256SUMS.txt)
 
       - name: Publish CIA as workflow artifact
         uses: actions/upload-artifact@v4
